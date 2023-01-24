@@ -1,12 +1,27 @@
 import "./App.css";
 import Component from "./components/Component";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Main from "./components/Main";
+
 function App() {
   return (
-    <>
-    <h1>Hello World!</h1>
-    <h2>Hello </h2>
-    <Component/>
-    </>
+    <body>
+
+
+<Header title="HELLO ZOHEB"/>
+
+
+<Navbar/>
+
+
+<Main/>
+
+
+<Footer/>
+
+</body>
   );
 }
 
