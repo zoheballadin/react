@@ -1,0 +1,22 @@
+.App {
+  margin: 0 40% !important;
+}
+
+
+form{
+  display: inline-block;
+  
+}
+
+input{
+  display: block;
+  padding: 10px;
+  margin: 5px;
+}
+
+.delete{
+  cursor: pointer;
+  margin: 10px;
+  vertical-align: middle;
+  
+}
