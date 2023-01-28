@@ -20,3 +20,29 @@ input{
   vertical-align: middle;
   
 }
+
+body{
+  background-color: blue;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.submit{
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.submit:hover{
+  background-color: red;
+}
+
+.showAdd{
+  color: white;
+  background-color: red;
+}
+
+.showHide{
+  background-color: green;
+  color: white;
+}

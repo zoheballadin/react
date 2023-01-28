@@ -22,7 +22,7 @@ export const AddTask = ({onAdd, showAddTask}) => {
             <input value={day} type="text" onChange={(e)=>setDay(e.target.value)} placeholder="Enter a date" />
             <label htmlFor="reminder">Reminder</label>
             <input value={reminder} type="checkbox" name="reminder" id="checkbox" onChange={(e)=>setReminder(e.currentTarget.checked)} checked={reminder}/>
-            <input type="submit" value="Add task" />
+            <input className="submit" type="submit" value="Add task" />
         </form>
     </div>
   )

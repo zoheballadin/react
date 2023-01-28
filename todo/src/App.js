@@ -24,11 +24,11 @@ function App() {
   return (
   
 
-    <div className="App">
-      
+    <div className="App" style={{ color: "white"}}>
+      <h1 style={{color: "white"}}>Task Manager</h1>
       {showAddTask && <AddTask onAdd={addTask}/>}
       <br />
-      <Tasks tasks={tasks} showAddTask={()=>setShowAddTask(!showAddTask)} onDelete={deleteTask}/>
+      <Tasks tasks={tasks} showAddTask={()=>setShowAddTask(!showAddTask)} onDelete={deleteTask} showValue={showAddTask}/>
     </div>
   );
 }

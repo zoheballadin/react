@@ -1,9 +1,9 @@
 import React from 'react'
 import { Task } from './Task'
-export const Tasks = ({tasks, onDelete, showAddTask}) => {
+export const Tasks = ({tasks, onDelete, showAddTask, showValue}) => {
   return (
     <div>
-        <button style={{padding: "10px"}} onClick={showAddTask}>{showAddTask ? "Hide" : "Add"}</button>
+        <button className={showValue ? "showHide" : "showAdd"} style={{padding: "10px"}} onClick={showAddTask}>{showValue ? "Hide" : "Add"}</button>
         {tasks.map(item => {
             return <Task task={item} onDelete={onDelete}/>
         })}
