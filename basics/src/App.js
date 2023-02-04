@@ -13,7 +13,7 @@ function App() {
 <Header title="HELLO ZOHEB"/>
 
 
-<Navbar/>
+<Navbar className = "navbar"/>
 
 
 <Main/>

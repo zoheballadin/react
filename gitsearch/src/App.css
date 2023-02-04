@@ -1,0 +1,77 @@
+.result img{
+  
+ 
+  width: 25vh
+  
+}
+
+.result{
+  margin: 4%;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px
+}
+
+.result:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.result h3{
+  text-align: center;
+  /* margin-left: 3rem; */
+}
+
+.result button{
+  margin-left: 6.8em;
+  padding: 0.8em;
+  background-color: black;
+  color: white;
+  border-radius: 1em;
+}
+.container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+}
+ .search img{
+ width: 10rem;
+ margin-top: 2%;
+ border-radius: 10px;
+ 
+ 
+}
+
+.search{
+  text-align: center;
+  border: 1px solid red;
+  background-color: rgb(40, 39, 39);
+  border-radius: 5px;
+  color:white;
+  /* opacity: 0.6; */
+  
+}
+
+.search input{
+  /* padding: 1%; */
+  height: 4vh;
+  width: 20%;
+  font-size: 1rem;
+  /* text-align: center; */
+}
+
+.search button{
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  width: 10rem;
+  border-radius: 5px;
+}
+
+.result:nth-of-type(even) {
+  background-color:lightgrey;
+  }
+      
+  .result:nth-of-type(odd) {
+  background-color: lightblue;
+  }
