@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import './App.css';
 import { User } from './User';
 import { Search } from './Search';
+import { Profile } from './Profile';
 function App() {
   let data = [
     {
@@ -637,7 +638,7 @@ function App() {
     }
   ]
 
-  console.log(data[1].login)
+  // console.log(data[1].login)
   
   return (
     <>
@@ -649,6 +650,7 @@ function App() {
         })
       }
     </div>
+      <Profile/>
     </>
   );
 }
