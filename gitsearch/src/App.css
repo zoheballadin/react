@@ -25,7 +25,7 @@
 }
 
 .result button{
-  margin-left: 6.8em;
+  margin-left: 34%;
   padding: 0.8em;
   background-color: black;
   color: white;
@@ -106,7 +106,7 @@ b{
 }
 
 .additional{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 1.5rem;
   background-color: rgb(204, 198, 198);
   word-wrap: break-word;
@@ -118,24 +118,30 @@ b{
   padding: 1rem;
   width: 92%;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .profile{
   display: flex;
-  
+  background-color: beige;
 }
 
 .repositories{
   /* align-self: center; */
-  /* border: 1px solid red; */
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  /* align-items: center; */
+  background-color: antiquewhite;
 }
 
 .repos{
   background-color: rgb(143, 138, 138);
-  margin-top: 20%;
+  margin-top: 1%;
   /* border: 1px solid red; */
   /* /* height: 7rem; */
-  width: 1200%;
+  width: 95%;
   height: 14%;
   /* padding: 50%; */
   text-align: center;
@@ -143,32 +149,56 @@ b{
   text-decoration: underline;
   
   
-  /* vertical-align: middle; */
+  vertical-align: middle;
   /* justify-content: center; */
+}
+
+.profile-pic{
+  width: 60%;
 }
 
 .repositories button{
   padding: 1rem;
+  width: 10%;
 }
 
 *{
-  font-family: 'Courier New', Courier, monospace;
+  font-family:'Courier New', Courier, monospace
 }
 
 @media only screen and (max-width: 600px) {
-  .repos {
-    width: 100%;
+  
+   .repos {
+    width: 95%;
+    word-wrap: break-word;
     /* display: block; */
+    /* height: 10%; */
   }
   .info  {
-    width: 300px;
+    min-width: 220px;
+    font-size: small;
+  }
+
+  h1{
+    font-size: 1.6rem;
   }
 
   .additional{
-    width: 200px;
+    width: 130px;
   }
   #bio{
     width: 200px;
+  }
+
+  .info button{
+    width: 180px;
+  }  
+  .profile  * {
+    width: calc(100%-500px);
+  }
+
+  .repositories button{
+    width: 60%;
   }
 }
 

@@ -1,51 +1,55 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios';
+import { Repo } from './Repo';
+import { useNavigate } from 'react-router-dom';
 export const Profile = () => {
-    let user = {
-        "login": "zoheballadin",
-        "id": 109140390,
-        "node_id": "U_kgDOBoFZpg",
-        "avatar_url": "https://avatars.githubusercontent.com/u/109140390?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/zoheballadin",
-        "html_url": "https://github.com/zoheballadin",
-        "followers_url": "https://api.github.com/users/zoheballadin/followers",
-        "following_url": "https://api.github.com/users/zoheballadin/following{/other_user}",
-        "gists_url": "https://api.github.com/users/zoheballadin/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/zoheballadin/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/zoheballadin/subscriptions",
-        "organizations_url": "https://api.github.com/users/zoheballadin/orgs",
-        "repos_url": "https://api.github.com/users/zoheballadin/repos",
-        "events_url": "https://api.github.com/users/zoheballadin/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/zoheballadin/received_events",
-        "type": "User",
-        "site_admin": false,
-        "name": "Zoheb Alladin",
-        "company": "Code For India Foundation",
-        "blog": "https://medium.com/@zoheballadin1",
-        "location": "Hyderabad, India",
-        "email": null,
-        "hireable": null,
-        "bio": "Aspiring full-stack developer | \r\nMERN stack | Scholar Class of B22 at Code For India ",
-        "twitter_username": "zoheballadin",
-        "public_repos": 8,
-        "public_gists": 0,
-        "followers": 6,
-        "following": 14,
-        "created_at": "2022-07-12T08:47:15Z",
-        "updated_at": "2023-01-30T04:17:27Z"
-      }
+
+    let navigate = useNavigate();
+    let {username} = useParams();
+    console.log(username)
+    let [user, setUser] = useState({})
+    let [repos, setRepos] = useState([])
+    const getUser = async() =>{
+        let {data} = await axios.get(`https://api.github.com/users/${username}`)
+        setUser(data)
+    }
+
+    const getRepos = async() =>{
+        try{
+            let {data} = await axios.get(`https://api.github.com/users/${username}/repos`)
+            // console.log(data[0].name)
+            data.splice(5)
+        setRepos(data)
+        console.log(repos)
+        }
+        catch(error){
+            console.log(error)
+        }
+        
+    }
+
+    useEffect(()=>{
+        getRepos()
+    },[])
+    useEffect(()=>{
+        
+        getUser()
+        
+        
+    },[])
+    
   return (
     <>
     <div className='profile'>
         <div className='info'>
             <h1>{user.name}</h1>
-            <img src={user.avatar_url} alt="" />
+            <img src={user.avatar_url} alt="" className='profile-pic'/>
             <h3>Bio</h3>
             <p id='bio'>{user.bio}</p>
             <p><b>Open for Hiring:</b> {user.hireable ? "Yes" : "No"}</p>
             <p></p>
-            <button>Go to Github Profile</button>
+            <Link to={`https://www.github.com/${username}`} target="_blank"><button>Go to Profile</button></Link>
             <p className='additional'>Followers: {user.followers}</p>
             <p className='additional'>Following: {user.following}</p>
             <p className='additional'>Company: {user.company}</p>
@@ -53,12 +57,18 @@ export const Profile = () => {
             <p className='additional'>Website: {user.blog}</p>
         </div>
         <div className='repositories'>
-            <button>Go Back</button>
-            <h3 className="repos">Repo 1</h3>
-            <h3 className="repos">Repo 2</h3>
-            <h3 className="repos">Repo 3</h3>
-            <h3 className="repos">Repo 4</h3>
-            <h3 className="repos">Repo 5</h3>
+            <button onClick={()=>navigate("/")}>Go Back</button>
+            {
+                repos.map(item => {
+                    return <Repo className="repos" repo={item}/>
+                })
+            }
+            
+            {/* <div className="repos"><h3 className='test'>{}</h3></div>
+            <div className="repos"><h3 className='test'>Repo 1</h3></div>
+            <div className="repos"><h3 className='test'>Repo 1</h3></div>
+            <div className="repos"><h3 className='test'>Repo 1</h3></div>
+            <div className="repos"><h3 className='test'>Repo 1</h3></div> */}
         </div>
     </div>
     </>
