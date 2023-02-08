@@ -1,20 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-export const Search = ({ setData }) => {
-  let navigate = useNavigate()
-  let search = async (name) => {
-    try {
-      let res = await axios.get(
-        `https://api.github.com/search/users?q=${name}`
-      );
-      res = res.data.items;
-      console.log(res);
-      setData(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
+import { Alert } from "./Alert";
+export const Search = ({  alert, search}) => {
+  
 
   let [input, setInput] = useState("");
   const onChange = (e) => {
@@ -33,6 +21,7 @@ export const Search = ({ setData }) => {
         placeholder="Search for a user"
         onChange={onChange}
       />
+      <Alert alert={alert}/>
       <br />
       <button onClick={() => search(input)}>Submit</button>
       <button onClick={()=> window.location.reload()}>Clear</button>

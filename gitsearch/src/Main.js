@@ -3,25 +3,20 @@ import { Search } from './Search'
 import { User } from './User'
 import { useState } from 'react'
 import axios from 'axios'
-export const Main = () => {
-
-    let [data, setData] = useState([]);
-    
+import { Loading } from './Loading'
+export const Main = ({showAlert, alert, data, setData, search, getBooks, loading}) => {
 
     
 
     useEffect(()=>{
-        const getBooks = async() =>{
-            let res = await axios.get(`https://api.github.com/users`)
-            setData(res.data)
-        }
         getBooks()
     },[])
 
   return (
     <div>
         
-    <Search setData={setData}/>
+    <Search   alert={alert} search={search}/>
+    {loading && <Loading/>}
     <div className="container">
       {
         data.map(item => {

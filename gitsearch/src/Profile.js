@@ -3,7 +3,14 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 import { Repo } from './Repo';
 import { useNavigate } from 'react-router-dom';
-export const Profile = () => {
+import { Loading } from './Loading';
+export const Profile = ({setLoading, loading}) => {
+    let options = {
+        auth: {
+          username: "zoheballadin",
+          password: "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"
+        }
+      }
 
     let navigate = useNavigate();
     let {username} = useParams();
@@ -11,16 +18,20 @@ export const Profile = () => {
     let [user, setUser] = useState({})
     let [repos, setRepos] = useState([])
     const getUser = async() =>{
-        let {data} = await axios.get(`https://api.github.com/users/${username}`)
+        setLoading(true)
+        let {data} = await axios.get(`https://api.github.com/users/${username}`, options)
         setUser(data)
+        setLoading(false)
     }
 
     const getRepos = async() =>{
         try{
-            let {data} = await axios.get(`https://api.github.com/users/${username}/repos`)
+            setLoading(true)
+            let {data} = await axios.get(`https://api.github.com/users/${username}/repos?sort=desc&per_page=5`, options)
             // console.log(data[0].name)
-            data.splice(5)
+            // data.splice(5)
         setRepos(data)
+        setLoading(false)
         console.log(repos)
         }
         catch(error){
@@ -41,6 +52,7 @@ export const Profile = () => {
     
   return (
     <>
+    {loading ? <Loading/> : (
     <div className='profile'>
         <div className='info'>
             <h1>{user.name}</h1>
@@ -52,9 +64,9 @@ export const Profile = () => {
             <Link to={`https://www.github.com/${username}`} target="_blank"><button>Go to Profile</button></Link>
             <p className='additional'>Followers: {user.followers}</p>
             <p className='additional'>Following: {user.following}</p>
-            <p className='additional'>Company: {user.company}</p>
-            <p className='additional'>Location: {user.location}</p>
-            <p className='additional'>Website: {user.blog}</p>
+            {user.company && <p className='additional'>Company: {user.company}</p>}
+            {user.location && <p className='additional'>Location: {user.location}</p>}
+            {user.blog && <p className='additional'>Website: {user.blog}</p>}
         </div>
         <div className='repositories'>
             <button onClick={()=>navigate("/")}>Go Back</button>
@@ -64,13 +76,9 @@ export const Profile = () => {
                 })
             }
             
-            {/* <div className="repos"><h3 className='test'>{}</h3></div>
-            <div className="repos"><h3 className='test'>Repo 1</h3></div>
-            <div className="repos"><h3 className='test'>Repo 1</h3></div>
-            <div className="repos"><h3 className='test'>Repo 1</h3></div>
-            <div className="repos"><h3 className='test'>Repo 1</h3></div> */}
+            
         </div>
-    </div>
+    </div>)}
     </>
   )
 }
