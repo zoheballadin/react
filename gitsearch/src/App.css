@@ -93,7 +93,7 @@
 }
 
 .loading{
-  width: 30%;
+  width: 10%;
 }
 
 .load-container{
@@ -133,6 +133,7 @@ b{
 .profile{
   display: flex;
   background-color: beige;
+  min-width: 80vh;
   
 }
 
@@ -155,6 +156,7 @@ b{
   height: 14%;
   /* padding: 50%; */
   text-align: center;
+  word-wrap: break-word;
   color: blue;
   text-decoration: underline;
   
@@ -184,40 +186,16 @@ b{
   color: green;
 }
 
+
+
 @media only screen and (max-width: 600px) {
-  
-   .repos {
-    width: 95%;
-    word-wrap: break-word;
-    /* display: block; */
-    /* height: 10%; */
-  }
-  .info  {
-    min-width: 220px;
-    font-size: small;
+
+  .repos{
+    width: 33%
   }
 
-  h1{
-    font-size: 1.6rem;
-  }
-
-  .additional{
-    width: 130px;
-  }
-  #bio{
-    width: 200px;
-  }
-
-  .info button{
-    width: 180px;
-  }  
-  .profile  * {
-    width: calc(100%-500px);
-  }
-  
   .repositories button{
-    width: 60%;
+    width: 20%;
   }
+
 }
-
-
