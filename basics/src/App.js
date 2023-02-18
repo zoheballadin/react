@@ -10,16 +10,7 @@ function App() {
     <body>
 
 
-<Header title="HELLO ZOHEB"/>
-
-
-<Navbar className = "navbar"/>
-
-
-<Main/>
-
-
-<Footer/>
+    <input type="datetime" name="date" id="date" />
 
 </body>
   );
