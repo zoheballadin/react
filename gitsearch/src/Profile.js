@@ -8,7 +8,7 @@ export const Profile = ({setLoading, loading}) => {
     let options = {
         auth: {
           username: "zoheballadin",
-          password: "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"
+          password: "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"
         }
       }
 
