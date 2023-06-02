@@ -9,7 +9,7 @@ function App() {
   let options = {
     auth: {
       username: "zoheballadin",
-      password: "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"
+      password: "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"
     }
   }
 
