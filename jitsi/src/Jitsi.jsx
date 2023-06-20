@@ -1,9 +1,10 @@
 import React from 'react'
 import { JitsiMeeting } from '@jitsi/react-sdk';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const Jitsi = () => {
     const {id} = useParams()
+    const navigate = useNavigate()
     
   return (
     <JitsiMeeting
@@ -21,6 +22,7 @@ export const Jitsi = () => {
     userInfo = {{
         displayName: 'YOUR_USERNAME'  
     }}
+    onReadyToClose={()=>navigate("/end")}
     onApiReady = { (externalApi) => {
         // here you can attach custom event listeners to the Jitsi Meet External API
         // you can also store it locally to execute commands
