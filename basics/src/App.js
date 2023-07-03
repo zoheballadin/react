@@ -1,18 +1,32 @@
+import { useState } from "react";
 import "./App.css";
-import Component from "./components/Component";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
-
+import Greeting from "./Greeting";
+import Post from "./Post";
 function App() {
+  const [state, setState] = useState([
+    { name: "Zoheb", age: "22" },
+    { name: "Devanshi", age: "21" },
+    { name: "Zoheb", age: "22" },
+    { name: "Devanshi", age: "21" },
+    { name: "Zoheb", age: "22" },
+    { name: "Devanshi", age: "21" },
+    { name: "Zoheb", age: "22" },
+    { name: "Devanshi", age: "21" },
+  ]);
+
   return (
     <body>
+     
+      <Post name="/>
 
 
-    <input type="datetime" name="date" id="date" />
 
-</body>
+
+      {/* {
+        state.map(item => <Greeting name={item.name} age={item.age}/>)
+      } */}
+
+    </body>
   );
 }
 
